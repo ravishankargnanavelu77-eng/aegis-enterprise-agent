@@ -1,0 +1,17 @@
+﻿EXECUTIVE STRATEGY MEMO
+Q2 2026
+
+TO: Executive Leadership Team
+FROM: Chief Strategy Office
+
+The Q2 revenue decline appears to be driven by a combination of customer budget pressure and delayed cloud expansion initiatives.
+
+Large enterprise customers have introduced stricter approval requirements for infrastructure and software spending.
+
+The sales organization reports that procurement cycles increased by approximately 20 percent compared with Q1.
+
+Titan Technologies delayed a major cloud expansion project.
+
+Vertex Financial postponed a planned infrastructure modernization initiative.
+
+Leadership recommends focusing on existing customer retention, usage expansion opportunities, and smaller phased deployments.
