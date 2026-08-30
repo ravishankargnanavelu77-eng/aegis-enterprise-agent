@@ -3,14 +3,19 @@
 
 graph = build_graph()
 
-query = (
-    "Why did enterprise revenue decline in Q2? "
-    "Analyze internal revenue data by region, product, and customer segment. "
-    "Search internal company documents for operational explanations. "
-    "Also research external market conditions, enterprise software spending trends, "
-    "cloud cost optimization trends, and competitive dynamics that may have "
-    "contributed to the revenue decline."
-)
+print("=" * 60)
+print("AEGIS ENTERPRISE AI AGENT")
+print("=" * 60)
+
+query = input("\nEnter your enterprise analysis question:\n> ").strip()
+
+if not query:
+    print("\nNo query entered. Please run the program again.")
+    raise SystemExit(1)
+
+print("\n" + "=" * 60)
+print("PROCESSING YOUR QUERY")
+print("=" * 60)
 
 result = graph.invoke(
     {

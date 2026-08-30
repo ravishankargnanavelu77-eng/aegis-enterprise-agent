@@ -1,0 +1,116 @@
+﻿# ============================================================
+# TAB 2 — AGENT OPERATIONS
+# ============================================================
+
+with tab2:
+
+    st.subheader("Agent Execution")
+
+    if not execution_plan:
+        st.info("No agent tasks were executed.")
+
+    for task in execution_plan:
+
+        task_id = task.get("id", "Unknown Task")
+
+        agent_name = task.get(
+            "agent",
+            "unknown",
+        ).upper()
+
+        task_description = task.get(
+            "description",
+            "No task description available.",
+        )
+
+        agent_result = agent_results.get(
+            task_id,
+            {},
+        )
+
+        agent_status = agent_result.get(
+            "status",
+            "unknown",
+        )
+
+        col1, col2 = st.columns([4, 1])
+
+        with col1:
+            st.markdown(
+                f"### {agent_name} AGENT"
+            )
+
+        with col2:
+
+            if agent_status == "completed":
+                st.success("COMPLETED")
+
+            elif agent_status == "failed":
+                st.error("FAILED")
+
+            else:
+                st.warning(
+                    agent_status.upper()
+                )
+
+        st.caption("TASK")
+
+        st.write(
+            task_description
+        )
+
+        if agent_status == "completed":
+
+            if task.get("agent") == "sql":
+
+                row_count = agent_result.get(
+                    "row_count",
+                    0,
+                )
+
+                st.success(
+                    f"Structured analysis completed successfully. "
+                    f"{row_count} records returned."
+                )
+
+            elif task.get("agent") == "research":
+
+                source_count = agent_result.get(
+                    "source_count",
+                    0,
+                )
+
+                st.success(
+                    f"External research completed successfully. "
+                    f"{source_count} sources analyzed."
+                )
+
+            elif task.get("agent") == "rag":
+
+                st.success(
+                    "Internal knowledge retrieval completed successfully."
+                )
+
+            else:
+
+                st.success(
+                    "Agent completed successfully."
+                )
+
+        else:
+
+            error_message = agent_result.get(
+                "error",
+                "No additional error details available.",
+            )
+
+            st.error(
+                f"Agent execution issue: {error_message}"
+            )
+
+        st.divider()
+
+
+# ============================================================
+# TAB 3 — DATA INTELLIGENCE
+# ============================================================

@@ -6,7 +6,7 @@ from app.agents.research_agent import research_agent_node
 from app.agents.sql_agent import sql_agent_node
 from app.graph.router import route_task
 from app.graph.state import AgentState
-from app.services.llm import invoke_with_retry
+from app.services.llm import get_llm, invoke_with_retry
 
 
 def _extract_text(content) -> str:
@@ -179,7 +179,7 @@ Return the answer using exactly these sections:
 ## Confidence and Limitations
 """
 
-    response = invoke_with_retry(prompt)
+    response = invoke_with_retry(get_llm(), prompt)
 
     final_answer = _extract_text(response.content)
 
@@ -239,3 +239,5 @@ def build_graph():
     graph.add_edge("synthesizer", END)
 
     return graph.compile()
+
+
