@@ -6,7 +6,7 @@ from app.graph.workflow import build_graph
 
 
 # ============================================================
-# PAGE CONFIG
+# PAGE CONFIG.
 # ============================================================
 
 st.set_page_config(
